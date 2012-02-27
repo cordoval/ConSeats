@@ -13,4 +13,13 @@ class SeatTest extends \PHPUnit_Framework_TestCase
         $seat = new Seat;
         $this->assertTrue($seat->isAvailable());
     }
+
+    /**
+     * @covers ConSeats\Domain\Seat::isReserved
+     */
+    public function testIsInitiallyNotReserved()
+    {
+        $seat = new Seat;
+        $this->assertFalse($seat->isReserved());
+    }
 }
