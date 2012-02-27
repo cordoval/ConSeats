@@ -14,9 +14,19 @@ namespace ConSeats\Domain
             $this->room = $room;
         }
 
+        public function getName()
+        {
+            return $this->name;
+        }
+
         public function setName($name)
         {
             $this->name = $name;
+        }
+
+        public function getDate()
+        {
+            return $this->date;
         }
 
         public function reserveSeat()
