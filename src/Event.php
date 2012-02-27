@@ -9,9 +9,9 @@ namespace ConSeats\Domain
 
         public function __construct($name, $date, Room $room)
         {
-            $this->name = $name;
-            $this->date = $date;
-            $this->room = $room;
+            $this->setName($name);
+            $this->setDate($date);
+            $this->setRoom($room);
         }
 
         public function getName()
@@ -27,6 +27,21 @@ namespace ConSeats\Domain
         public function getDate()
         {
             return $this->date;
+        }
+
+        public function setDate($date)
+        {
+            $this->date = $date;
+        }
+
+        public function getRoom()
+        {
+            return $this->room;
+        }
+
+        public function setRoom(Room $room)
+        {
+            $this->room = $room;
         }
 
         public function reserveSeat()

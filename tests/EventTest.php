@@ -21,8 +21,6 @@ class EventTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers ConSeats\Domain\Event::__construct
-     * @covers ConSeats\Domain\Event::getDate
-     * @covers ConSeats\Domain\Event::getName
      */
     public function testIsCorrectlyConstructed()
     {
