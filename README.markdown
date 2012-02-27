@@ -7,22 +7,22 @@ Demo application developed during "Advanced PHP Training" at ConFoo 2012.
 Requirements
 ------------
 
-* Rooms
-  * have a list (or map) of seats
+* Persons
+  * can reserve one or more seats
+  * can cancel a reservation
 
-* Events
+* Events (Aggregate Root / Facade for rooms and seats)
   * have a date
   * have a name
   * happen in a room
+
+* Rooms
+  * have a list (or map) of seats
 
 * Seats
   * are numbered
   * can be available
   * can be reserved
-
-* Persons
-  * can reserve one or more seats
-  * can cancel a reservation
 
 * List of seats
 * Reservation
