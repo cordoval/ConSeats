@@ -7,6 +7,11 @@ Demo application developed during "Advanced PHP Training" at ConFoo 2012.
 Requirements
 ------------
 
+* Events
+  * have a date
+  * have a name
+  * have a list (or map) of seats
+
 * Seats
   * are numbered
   * can be available
