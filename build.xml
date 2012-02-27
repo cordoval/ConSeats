@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project name="ConSeats" default="phpab">
+<project name="ConSeats" default="build">
+ <target name="build" depends="prepare,phpunit"/>
+
+ <target name="clean" description="Cleanup build artifacts">
+  <delete dir="${basedir}/build/coverage"/>
+  <delete dir="${basedir}/build/logs"/>
+ </target>
+
  <target name="phpab" description="Generate autoloader script">
   <exec executable="phpab">
    <arg value="--output" />
    <arg path="${basedir}/src/autoload.php" />
    <arg path="${basedir}/src" />
   </exec>
+ </target>
+
+ <target name="prepare" depends="clean,phpab" description="Prepare for build">
+  <mkdir dir="${basedir}/build/coverage"/>
+  <mkdir dir="${basedir}/build/logs"/>
+ </target>
+
+ <target name="phpunit" description="Run unit tests with PHPUnit">
+  <exec executable="phpunit" failonerror="true"/>
  </target>
 </project>
