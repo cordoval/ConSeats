@@ -29,6 +29,7 @@ namespace ConSeats\Domain
         {
             $seat = $this->getNextAvailableSeat();
             $seat->reserve();
+
             return $seat;
         }
 
@@ -39,6 +40,7 @@ namespace ConSeats\Domain
                     return $seat;
                 }
             }
+
             throw new Exception("No availbale seat found.");
         }
     }

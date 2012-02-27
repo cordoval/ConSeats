@@ -16,7 +16,7 @@ namespace ConSeats\Backends\Tests
         {
             $this->store = new NoSqlStore('/tmp');
         }
-        
+
         /**
          * @expectedException ConSeats\Backends\Exception
          */
@@ -32,14 +32,14 @@ namespace ConSeats\Backends\Tests
         {
             $this->store->retrieve('this-is-not-a-valid-id');
         }
-        
+
         public function testStoresObject()
         {
             $object = new DomainObject();
             $id = $this->store->store($object);
-            
+
             $this->assertTrue(file_exists('/tmp/' . $id));
-            
+
             return array($object, $id);
         }
 
@@ -50,7 +50,7 @@ namespace ConSeats\Backends\Tests
         {
             $this->assertEquals($data[0], $this->store->retrieve($data[1]));
         }
-        
+
         public function testReturnsIdWhenNewObjectsAreStored()
         {
             $object = new DomainObject();

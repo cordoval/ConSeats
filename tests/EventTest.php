@@ -66,14 +66,14 @@ class EventTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers ConSeats\Domain\Event::reserveSeat
-     */ 
+     */
     public function testDelegatesSeatReservationToRoom()
     {
         $this->room->expects($this->once())
                    ->method('reserveSeat');
 
         $this->event->reserveSeat();
-    }   
+    }
 
     public function testReserveSeatReturnsASeat()
     {
@@ -83,6 +83,6 @@ class EventTest extends \PHPUnit_Framework_TestCase
                    ->method('reserveSeat')
                    ->will($this->returnValue($seat));
 
-        $this->assertSame($seat, $this->event->reserveSeat());        
+        $this->assertSame($seat, $this->event->reserveSeat());
     }
 }

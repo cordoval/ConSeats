@@ -10,7 +10,7 @@ namespace ConSeats\Backends\Tests
         {
             $this->relatedObjects[] = $object;
         }
-        
+
         public function getNumberOfRelatedObjects()
         {
             return count($this->relatedObjects);

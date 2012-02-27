@@ -29,11 +29,11 @@ namespace ConSeats\Backends
         public function retrieve($id)
         {
             $filename = $this->getFilename($id);
-            
+
             if (!file_exists($filename)) {
                 throw new Exception('Document ID "' . $id . '" not found');
             }
-        
+
             return unserialize(file_get_contents($filename));
         }
 
