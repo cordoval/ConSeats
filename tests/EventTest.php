@@ -63,4 +63,25 @@ class EventTest extends \PHPUnit_Framework_TestCase
         $this->event->setDate('2013-02-25');
         $this->assertEquals('2013-02-25', $this->event->getDate());
     }
+
+    /**
+     * @covers ConSeats\Domain\Event::reserveSeat
+     */ 
+    public function testDelegatesSeatReservationToRoom()
+    {
+        $this->room->expects($this->once())
+                   ->method('reserveSeat');
+        $this->event->reserveSeat();
+    }   
+ 
+ 
+    public function testReserveSeatReturnsASeat()
+    {
+        $seat = $this->getMock('ConSeats\\Domain\\Seat');
+        $this->room->expects($this->once())
+                   ->method('reserveSeat')
+                   ->will($this->returnValue($seat));
+        $this->assertSame($seat, $this->event->reserveSeat());        
+    }
+    
 }
