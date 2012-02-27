@@ -34,12 +34,7 @@ namespace ConSeats\Domain
             $this->date = $date;
         }
 
-        public function getRoom()
-        {
-            return $this->room;
-        }
-
-        public function setRoom(Room $room)
+        protected function setRoom(Room $room)
         {
             $this->room = $room;
         }
