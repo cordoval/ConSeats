@@ -8,6 +8,10 @@ class EventTest extends \PHPUnit_Framework_TestCase
     protected $event;
     protected $room;
 
+    /**
+     * @covers ConSeats\Domain\Event::__construct
+     * @covers ConSeats\Domain\Event::setRoom
+     */
     protected function setUp()
     {
         $this->room = $this->getMockBuilder('ConSeats\\Domain\\Room')
@@ -20,15 +24,13 @@ class EventTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers ConSeats\Domain\Event::__construct
+     * @covers ConSeats\Domain\Event::getName
      */
-    public function testIsCorrectlyConstructed()
+    public function testNameCanBeRetrieved()
     {
         $this->assertEquals(
           'Advanced PHP Training', $this->event->getName()
         );
-
-        $this->assertEquals('2012-02-27', $this->event->getDate());
     }
 
     /**
@@ -41,5 +43,24 @@ class EventTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(
           'Very Advanced PHP Training', $this->event->getName()
         );
+    }
+
+    /**
+     * @covers ConSeats\Domain\Event::getDate
+     */
+    public function testDateCanBeRetrieved()
+    {
+        $this->assertEquals(
+          '2012-02-27', $this->event->getDate()
+        );
+    }
+
+    /**
+     * @covers ConSeats\Domain\Event::setDate
+     */
+    public function testDateCanBeChanged()
+    {
+        $this->event->setDate('2013-02-25');
+        $this->assertEquals('2013-02-25', $this->event->getDate());
     }
 }
