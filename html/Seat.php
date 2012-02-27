@@ -13,11 +13,19 @@ namespace ConSeats\Domain
         
         public function reserve()
         {
+            if ($this->reserved) {
+                throw new Exception('Seat is already reserved.');
+            }
+
             $this->reserved = true;
         }
 
         public function cancelReservation()
         {
+            if (!$this->reserved) {
+                throw new Exception('Seat is not reserved.');
+            }
+
             $this->reserved = false;
         }
     }
