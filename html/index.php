@@ -1,5 +1,7 @@
 <?php
 
+require 'autoload.php';
+
 $room = new ConSeats\Domain\Room(15);
 $event = new ConSeats\Domain\Event('Advanced PHP Training', '2012-02-27', $room);
 
