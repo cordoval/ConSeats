@@ -19,5 +19,11 @@ namespace ConSeats\Domain
         {
             $this->name = $name;
         }
+        
+        public function reserveSeat()
+        {
+            return $this->room->reserveSeat();
+        }
+        
     }
 }

@@ -1,3 +1,4 @@
+<pre>
 <?php
 
 require 'autoload.php';
@@ -10,4 +11,6 @@ for($t=0; $t<15; $t++) {
     $room->addSeat($seat);
 }
 
-var_dump($event);
+$seat = $event->reserveSeat();
+
+var_dump($seat);

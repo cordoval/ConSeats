@@ -24,6 +24,23 @@ namespace ConSeats\Domain
             }
             $this->seats[] = $seat;
         }
+        
+        public function reserveSeat()
+        {
+            $seat = $this->getNextAvailableSeat();
+            $seat->reserve();
+            return $seat;
+        }
+ 
+        protected function getNextAvailableSeat()
+        {
+            foreach($this->seats as $seat) {
+                if ($seat->isAvailable()) {
+                    return $seat;
+                }
+            }
+            throw new Exception("No availbale seat found.");
+        }
    
     }
 }

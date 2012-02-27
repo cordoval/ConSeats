@@ -10,7 +10,12 @@ namespace ConSeats\Domain
         {
             return $this->reserved;
         }
-        
+
+        public function isAvailable()
+        {
+            return !$this->isReserved();
+        }
+
         public function reserve()
         {
             if ($this->reserved) {
