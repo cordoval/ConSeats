@@ -71,17 +71,18 @@ class EventTest extends \PHPUnit_Framework_TestCase
     {
         $this->room->expects($this->once())
                    ->method('reserveSeat');
+
         $this->event->reserveSeat();
     }   
- 
- 
+
     public function testReserveSeatReturnsASeat()
     {
         $seat = $this->getMock('ConSeats\\Domain\\Seat');
+
         $this->room->expects($this->once())
                    ->method('reserveSeat')
                    ->will($this->returnValue($seat));
+
         $this->assertSame($seat, $this->event->reserveSeat());        
     }
-    
 }
