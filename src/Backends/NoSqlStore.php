@@ -39,7 +39,7 @@ namespace ConSeats\Backends
 
         protected function getFilename($id)
         {
-            return $this->dataDir . '/' . $id;
+            return $this->dataDir . '/' . base64_encode($id);
         }
     }
 }
