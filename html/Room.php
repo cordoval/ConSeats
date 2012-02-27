@@ -19,7 +19,7 @@ namespace ConSeats\Domain
         
         public function addSeat(Seat $seat)
         {
-            if (count($this->seats) + 1 > $this->capacity) {
+            if ($this->getAvailableCapacity() < 1) {
                 throw new Exception("Room capacity limit reached.");
             }
             $this->seats[] = $seat;
