@@ -11,12 +11,14 @@ namespace ConSeats\Domain
             return $this->reserved;
         }
         
-        public function setReserved($bool)
+        public function reserve()
         {
-            if (!is_bool($bool)) {
-                throw new Exception("'$bool' is not boolean");
-            }
-            $this->reserved = $bool;
+            $this->reserved = true;
+        }
+
+        public function cancelReservation()
+        {
+            $this->reserved = false;
         }
     }
 }
