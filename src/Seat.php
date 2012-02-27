@@ -1,11 +1,10 @@
 <?php
-
 namespace ConSeats\Domain
 {
     class Seat
     {
         protected $reserved = false;
-        
+
         public function isReserved()
         {
             return $this->reserved;
