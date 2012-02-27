@@ -39,6 +39,7 @@ class SeatTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers            ConSeats\Domain\Seat::reserve
+     * @covers            ConSeats\Domain\Exception
      * @depends           testCanBeReserved
      * @expectedException ConSeats\Domain\Exception
      */
@@ -59,6 +60,7 @@ class SeatTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers            ConSeats\Domain\Seat::cancelReservation
+     * @covers            ConSeats\Domain\Exception
      * @depends           testIsInitiallyNotReserved
      * @expectedException ConSeats\Domain\Exception
      */
