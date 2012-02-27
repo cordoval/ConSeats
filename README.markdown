@@ -7,10 +7,13 @@ Demo application developed during "Advanced PHP Training" at ConFoo 2012.
 Requirements
 ------------
 
+* Rooms
+  * have a list (or map) of seats
+
 * Events
   * have a date
   * have a name
-  * have a list (or map) of seats
+  * happen in a room
 
 * Seats
   * are numbered
