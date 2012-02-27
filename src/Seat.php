@@ -5,14 +5,14 @@ namespace ConSeats\Domain
     {
         protected $reserved = false;
 
-        public function isReserved()
-        {
-            return $this->reserved;
-        }
-
         public function isAvailable()
         {
             return !$this->isReserved();
+        }
+
+        public function isReserved()
+        {
+            return $this->reserved;
         }
 
         public function reserve()

@@ -11,11 +11,6 @@ namespace ConSeats\Domain
             $this->capacity = $capacity;
         }
 
-        public function getAvailableCapacity()
-        {
-            return $this->capacity - count($this->seats);
-        }
-
         public function addSeat(Seat $seat)
         {
             if ($this->getAvailableCapacity() < 1) {
@@ -23,6 +18,11 @@ namespace ConSeats\Domain
             }
 
             $this->seats[] = $seat;
+        }
+
+        public function getAvailableCapacity()
+        {
+            return $this->capacity - count($this->seats);
         }
 
         public function reserveSeat()
