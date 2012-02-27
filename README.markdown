@@ -4,6 +4,12 @@ ConSeats
 Demo application developed during "Advanced PHP Training" at ConFoo 2012.
 
 
+Disclaimer
+----------
+
+This example code is no production code and should be used for training purposes only.
+
+
 Requirements
 ------------
 
