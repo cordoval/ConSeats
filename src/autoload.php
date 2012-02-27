@@ -7,6 +7,9 @@ spl_autoload_register(
         static $classes = null;
         if ($classes === null) {
             $classes = array(
+                'conseats\\backends\\exception' => '/Backends/Exception.php',
+                'conseats\\backends\\nosqlstore' => '/Backends/NoSqlStore.php',
+                'conseats\\backends\\nosqlstoreinterface' => '/Backends/NoSqlStoreInterface.php',
                 'conseats\\domain\\event' => '/Event.php',
                 'conseats\\domain\\exception' => '/Exception.php',
                 'conseats\\domain\\room' => '/Room.php',
