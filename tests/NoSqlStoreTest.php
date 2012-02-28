@@ -12,12 +12,17 @@ namespace ConSeats\Backends\Tests
     {
         protected $store;
 
+        /**
+         * @covers ConSeats\Backends\NoSqlStore::__construct
+         */
         protected function setUp()
         {
             $this->store = new NoSqlStore('/tmp');
         }
 
         /**
+         * @covers            ConSeats\Backends\NoSqlStore::store
+         * @covers            ConSeats\Backends\Exception
          * @expectedException ConSeats\Backends\Exception
          */
         public function testStoringNonObjectRaisesException()
@@ -26,6 +31,8 @@ namespace ConSeats\Backends\Tests
         }
 
         /**
+         * @covers            ConSeats\Backends\NoSqlStore::retrieve
+         * @covers            ConSeats\Backends\Exception
          * @expectedException ConSeats\Backends\Exception
          */
         public function testRetrievingNonexistingIdRaisesException()
@@ -33,6 +40,11 @@ namespace ConSeats\Backends\Tests
             $this->store->retrieve('this-is-not-a-valid-id');
         }
 
+        /**
+         * @covers ConSeats\Backends\NoSqlStore::store
+         * @covers ConSeats\Backends\NoSqlStore::exists
+         * @covers ConSeats\Backends\NoSqlStore::getFilename
+         */
         public function testStoresObject()
         {
             $object = new DomainObject();
@@ -44,6 +56,8 @@ namespace ConSeats\Backends\Tests
         }
 
         /**
+         * @covers  ConSeats\Backends\NoSqlStore::retrieve
+         * @covers  ConSeats\Backends\NoSqlStore::getFilename
          * @depends testStoresObject
          */
         public function testRetrievesObject(array $data)
@@ -51,6 +65,9 @@ namespace ConSeats\Backends\Tests
             $this->assertEquals($data[0], $this->store->retrieve($data[1]));
         }
 
+        /**
+         * @covers ConSeats\Backends\NoSqlStore::store
+         */
         public function testReturnsIdWhenNewObjectsAreStored()
         {
             $object = new DomainObject();
