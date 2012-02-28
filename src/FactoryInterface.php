@@ -2,7 +2,7 @@
 
 namespace ConSeats
 {
-    class FactoryInterface
+    interface FactoryInterface
     {
         public function getInstanceFor($type);
     }
