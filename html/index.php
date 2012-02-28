@@ -1,4 +1,3 @@
-<pre>
 <?php
 
 require __DIR__ . '/../src/autoload.php';
@@ -19,5 +18,8 @@ $seat = $event->reserveSeat();
 $store = $factory->getInstanceFor('persistence');
 $id = $store->store($event);
 
-$event2 = $store->retrieve($id);
-var_dump($event2);
+$presentationModel = new ConSeats\Models\PresentationModel($event);
+$decorator = new ConSeats\Decorators\HtmlDecorator($presentationModel);
+
+$view = $factory->getInstanceFor('HomeView');
+echo $view->render($decorator);

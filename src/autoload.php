@@ -14,13 +14,22 @@ spl_autoload_register(
                 'conseats\\configuration' => '/Configuration/Configuration.php',
                 'conseats\\configurationexception' => '/Configuration/ConfigurationException.php',
                 'conseats\\configurationinterface' => '/Configuration/ConfigurationInterface.php',
+                'conseats\\decorators\\htmldecorator' => '/Decorators/HtmlDecorator.php',
                 'conseats\\domain\\event' => '/Domain/Event.php',
                 'conseats\\domain\\exception' => '/Domain/Exception.php',
                 'conseats\\domain\\room' => '/Domain/Room.php',
                 'conseats\\domain\\seat' => '/Domain/Seat.php',
                 'conseats\\factory' => '/Factory/Factory.php',
                 'conseats\\factoryexception' => '/Factory/FactoryException.php',
+<<<<<<< HEAD
                 'conseats\\factoryinterface' => '/Factory/FactoryInterface.php'
+=======
+                'conseats\\factoryinterface' => '/Factory/FactoryInterface.php',
+                'conseats\\models\\presentationmodel' => '/Models/PresentationModel.php',
+                'conseats\\models\\presentationmodelinterface' => '/Models/PresentationModelInterface.php',
+                'conseats\\views\\view' => '/Views/View.php',
+                'conseats\\views\\viewinterface' => '/Views/ViewInterface.php'
+>>>>>>> Implemented a simple yet secure default view
             );
         }
         $cn = strtolower($class);
