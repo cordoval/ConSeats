@@ -28,13 +28,15 @@ namespace ConSeats\Backends
 
         public function retrieve($id)
         {
-            $filename = $this->getFilename($id);
-
-            if (!file_exists($filename)) {
+            if (!$this->exists($id)) {
                 throw new Exception('Document ID "' . $id . '" not found');
             }
-
-            return unserialize(file_get_contents($filename));
+            return unserialize(file_get_contents($this->getFilename($id)));
+        }
+        
+        public function exists($id)
+        {
+            return file_exists($this->getFilename($id));
         }
 
         protected function getFilename($id)

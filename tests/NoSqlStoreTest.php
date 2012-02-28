@@ -38,7 +38,7 @@ namespace ConSeats\Backends\Tests
             $object = new DomainObject();
             $id = $this->store->store($object);
 
-            // Verify, file exists here
+            $this->assertTrue($this->store->exists($id));
 
             return array($object, $id);
         }
