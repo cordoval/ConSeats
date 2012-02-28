@@ -4,7 +4,7 @@ namespace ConSeats
 {
     class Factory implements FactoryInterface
     {
-        public function __construct(Configuration $configuration)
+        public function __construct(ConfigurationInterface $configuration)
         {
             $this->configuration = $configuration;
         }
