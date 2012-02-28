@@ -19,12 +19,6 @@
    <arg path="${basedir}/src/autoload.php" />
    <arg path="${basedir}/src" />
   </exec>
-
-  <exec executable="phpab">
-   <arg value="--output" />
-   <arg path="${basedir}/tests/fixture/autoload.php" />
-   <arg path="${basedir}/tests/fixture" />
-  </exec>
  </target>
 
  <target name="prepare" depends="clean,phpab" description="Prepare for build">
