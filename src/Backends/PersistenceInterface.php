@@ -2,7 +2,7 @@
 
 namespace ConSeats\Backends
 {
-    interface NoSqlStoreInterface
+    interface PersistenceInterface
     {
         public function store($object, $id = null);
         public function retrieve($id);

@@ -2,7 +2,7 @@
 
 namespace ConSeats\Backends
 {
-    class NoSqlStore implements NoSqlStoreInterface
+    class NoSqlStore implements PersistenceInterface
     {
         protected $dataDir;
 
