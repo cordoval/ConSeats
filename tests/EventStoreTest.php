@@ -2,30 +2,30 @@
 
 namespace ConSeats\Backends\Tests
 {
-    use ConSeats\Backends\NoSqlStore;
+    use ConSeats\Backends\EventStore;
     use ConSeats\Backends\Tests\DomainObject;
 
-    class NoSqlStoreTest extends \PHPUnit_Framework_TestCase
+    class EventStoreTest extends \PHPUnit_Framework_TestCase
     {
         protected $store;
 
         public static function setUpBeforeClass()
         {
-            \vfsStream::setup('NoSqlStoreTest');
+            \vfsStream::setup('EventStoreTest');
         }
 
         /**
-         * @covers ConSeats\Backends\NoSqlStore::__construct
+         * @covers ConSeats\Backends\EventStore::__construct
          */
         protected function setUp()
         {
-            $this->store = new NoSqlStore(
-              \vfsStream::url('NoSqlStoreTest') . '/'
+            $this->store = new EventStore(
+              \vfsStream::url('EventStoreTest') . '/'
             );
         }
 
         /**
-         * @covers            ConSeats\Backends\NoSqlStore::store
+         * @covers            ConSeats\Backends\EventStore::store
          * @covers            ConSeats\Backends\Exception
          * @expectedException ConSeats\Backends\Exception
          */
@@ -35,7 +35,7 @@ namespace ConSeats\Backends\Tests
         }
 
         /**
-         * @covers            ConSeats\Backends\NoSqlStore::retrieve
+         * @covers            ConSeats\Backends\EventStore::retrieve
          * @covers            ConSeats\Backends\Exception
          * @expectedException ConSeats\Backends\Exception
          */
@@ -45,13 +45,13 @@ namespace ConSeats\Backends\Tests
         }
 
         /**
-         * @covers ConSeats\Backends\NoSqlStore::store
-         * @covers ConSeats\Backends\NoSqlStore::exists
-         * @covers ConSeats\Backends\NoSqlStore::getFilename
+         * @covers ConSeats\Backends\EventStore::store
+         * @covers ConSeats\Backends\EventStore::exists
+         * @covers ConSeats\Backends\EventStore::getFilename
          */
         public function testStoresObject()
         {
-            $object = new DomainObject();
+            $object = $this->getEvent();
             $id = $this->store->store($object);
 
             $this->assertTrue($this->store->exists($id));
@@ -60,8 +60,8 @@ namespace ConSeats\Backends\Tests
         }
 
         /**
-         * @covers  ConSeats\Backends\NoSqlStore::retrieve
-         * @covers  ConSeats\Backends\NoSqlStore::getFilename
+         * @covers  ConSeats\Backends\EventStore::retrieve
+         * @covers  ConSeats\Backends\EventStore::getFilename
          * @depends testStoresObject
          */
         public function testRetrievesObject(array $data)
@@ -70,12 +70,19 @@ namespace ConSeats\Backends\Tests
         }
 
         /**
-         * @covers ConSeats\Backends\NoSqlStore::store
+         * @covers ConSeats\Backends\EventStore::store
          */
         public function testReturnsIdWhenNewObjectsAreStored()
         {
-            $object = new DomainObject();
+            $object = $this->getEvent();        
             $this->assertNotNull($this->store->store($object));
+        }
+        
+        protected function getEvent()
+        {
+            return $this->getMockBuilder('ConSeats\\Domain\\Event')
+                        ->disableOriginalConstructor()
+                        ->getMock();
         }
     }
 }

@@ -7,8 +7,9 @@ spl_autoload_register(
         static $classes = null;
         if ($classes === null) {
             $classes = array(
+                'conseats\\backends\\eventpersistenceinterface' => '/Backends/EventPersistenceInterface.php',
+                'conseats\\backends\\eventstore' => '/Backends/EventStore.php',
                 'conseats\\backends\\exception' => '/Backends/Exception.php',
-                'conseats\\backends\\nosqlstore' => '/Backends/NoSqlStore.php',
                 'conseats\\backends\\persistenceinterface' => '/Backends/PersistenceInterface.php',
                 'conseats\\domain\\event' => '/Event.php',
                 'conseats\\domain\\exception' => '/Exception.php',
