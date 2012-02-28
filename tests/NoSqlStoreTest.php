@@ -9,12 +9,19 @@ namespace ConSeats\Backends\Tests
     {
         protected $store;
 
+        public static function setUpBeforeClass()
+        {
+            \vfsStream::setup('NoSqlStoreTest');
+        }
+
         /**
          * @covers ConSeats\Backends\NoSqlStore::__construct
          */
         protected function setUp()
         {
-            $this->store = new NoSqlStore('/tmp');
+            $this->store = new NoSqlStore(
+              \vfsStream::url('NoSqlStoreTest') . '/'
+            );
         }
 
         /**
