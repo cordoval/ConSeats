@@ -19,6 +19,7 @@ spl_autoload_register(
                 'conseats\\domain\\room' => '/Domain/Room.php',
                 'conseats\\domain\\seat' => '/Domain/Seat.php',
                 'conseats\\factory' => '/Factory/Factory.php',
+                'conseats\\factoryexception' => '/Factory/FactoryException.php',
                 'conseats\\factoryinterface' => '/Factory/FactoryInterface.php'
             );
         }
