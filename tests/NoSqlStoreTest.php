@@ -2,9 +2,6 @@
 
 namespace ConSeats\Backends\Tests
 {
-    /** @todo create autoload map for testdata */
-    require_once __DIR__ . '/testdata/DomainObject.php';
-
     use ConSeats\Backends\NoSqlStore;
     use ConSeats\Backends\Tests\DomainObject;
 
