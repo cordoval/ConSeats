@@ -18,8 +18,8 @@ spl_autoload_register(
                 'conseats\\domain\\exception' => '/Domain/Exception.php',
                 'conseats\\domain\\room' => '/Domain/Room.php',
                 'conseats\\domain\\seat' => '/Domain/Seat.php',
-                'conseats\\factory' => '/Factory.php',
-                'conseats\\factoryinterface' => '/FactoryInterface.php'
+                'conseats\\factory' => '/Factory/Factory.php',
+                'conseats\\factoryinterface' => '/Factory/FactoryInterface.php'
             );
         }
         $cn = strtolower($class);
