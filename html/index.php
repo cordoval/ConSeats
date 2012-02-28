@@ -14,7 +14,7 @@ for($t=0; $t<15; $t++) {
 $seat = $event->reserveSeat();
 
 
-$store = new ConSeats\Backends\NoSqlStore('/tmp');
+$store = new ConSeats\Backends\EventStore('/tmp');
 $id = $store->store($event);
 
 $event2 = $store->retrieve($id);
