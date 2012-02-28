@@ -11,10 +11,14 @@ spl_autoload_register(
                 'conseats\\backends\\eventstore' => '/Backends/EventStore.php',
                 'conseats\\backends\\exception' => '/Backends/Exception.php',
                 'conseats\\backends\\persistenceinterface' => '/Backends/PersistenceInterface.php',
-                'conseats\\domain\\event' => '/Event.php',
-                'conseats\\domain\\exception' => '/Exception.php',
-                'conseats\\domain\\room' => '/Room.php',
-                'conseats\\domain\\seat' => '/Seat.php'
+                'conseats\\configuration' => '/Configuration.php',
+                'conseats\\configurationinterface' => '/ConfigurationInterface.php',
+                'conseats\\domain\\event' => '/Domain/Event.php',
+                'conseats\\domain\\exception' => '/Domain/Exception.php',
+                'conseats\\domain\\room' => '/Domain/Room.php',
+                'conseats\\domain\\seat' => '/Domain/Seat.php',
+                'conseats\\factory' => '/Factory.php',
+                'conseats\\factoryinterface' => '/FactoryInterface.php'
             );
         }
         $cn = strtolower($class);
