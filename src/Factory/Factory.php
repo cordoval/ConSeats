@@ -14,6 +14,8 @@ namespace ConSeats
             switch (strtolower($type)) {
                 case 'persistence':
                     return new \ConSeats\Backends\EventStore($this->configuration->get('dataDir'));
+                default:
+                    throw new FactoryException('Unknown type "' . $type . '"');
             }
         }
     }
