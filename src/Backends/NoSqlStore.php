@@ -33,7 +33,7 @@ namespace ConSeats\Backends
             }
             return unserialize(file_get_contents($this->getFilename($id)));
         }
-        
+
         public function exists($id)
         {
             return file_exists($this->getFilename($id));
