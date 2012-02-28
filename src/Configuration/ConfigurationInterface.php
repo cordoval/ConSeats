@@ -2,7 +2,7 @@
 
 namespace ConSeats
 {
-    class ConfigurationInterface
+    interface ConfigurationInterface
     {
         public function get($key);
     }

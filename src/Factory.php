@@ -13,7 +13,7 @@ namespace ConSeats
         {
             switch (strtolower($type)) {
                 case 'persistence':
-                    return new ConSeats\Backends\EventStore($this->configuration->get('dataDir'));
+                    return new \ConSeats\Backends\EventStore($this->configuration->get('dataDir'));
             }
         }
     }
