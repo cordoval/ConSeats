@@ -43,7 +43,7 @@ namespace ConSeats\Domain
         {
             return $this->room->reserveSeat();
         }
-        
+
         public function getNumberOfAvailableSeats()
         {
             return 23;

@@ -1,25 +1,27 @@
 <?php
-
 require __DIR__ . '/../src/autoload.php';
 
-$configuration = new ConSeats\Configuration(parse_ini_file(__DIR__ . '/../config/config.ini'));
+$configuration = new ConSeats\Configuration(
+  parse_ini_file(__DIR__ . '/../config/config.ini')
+);
+
 $factory = new ConSeats\Factory($configuration);
+$room    = new ConSeats\Domain\Room(15);
+$event   = new ConSeats\Domain\Event(
+             'Advanced PHP Training', '2012-02-27', $room
+           );
 
-$room = new ConSeats\Domain\Room(15);
-$event = new ConSeats\Domain\Event('Advanced PHP Training', '2012-02-27', $room);
-
-for($t=0; $t<15; $t++) {
-    $seat = new ConSeats\Domain\Seat();
+for ($t = 0; $t < 15; $t++) {
+    $seat = new ConSeats\Domain\Seat;
     $room->addSeat($seat);
 }
 
-$seat = $event->reserveSeat();
-
+$seat  = $event->reserveSeat();
 $store = $factory->getInstanceFor('persistence');
-$id = $store->store($event);
+$id    = $store->store($event);
 
 $presentationModel = new ConSeats\Models\PresentationModel($event);
-$decorator = new ConSeats\Decorators\HtmlDecorator($presentationModel);
+$decorator         = new ConSeats\Decorators\HtmlDecorator($presentationModel);
 
 $view = $factory->getInstanceFor('HomeView');
-echo $view->render($decorator);
+print $view->render($decorator);

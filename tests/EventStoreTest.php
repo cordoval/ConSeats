@@ -1,5 +1,4 @@
 <?php
-
 namespace ConSeats\Backends\Tests
 {
     use ConSeats\Backends\EventStore;
@@ -74,10 +73,10 @@ namespace ConSeats\Backends\Tests
          */
         public function testReturnsIdWhenNewObjectsAreStored()
         {
-            $object = $this->getEvent();        
+            $object = $this->getEvent();
             $this->assertNotNull($this->store->store($object));
         }
-        
+
         protected function getEvent()
         {
             return $this->getMockBuilder('ConSeats\\Domain\\Event')

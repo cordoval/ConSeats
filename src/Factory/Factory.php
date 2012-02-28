@@ -1,5 +1,4 @@
 <?php
-
 namespace ConSeats
 {
     class Factory implements FactoryInterface
@@ -8,21 +7,23 @@ namespace ConSeats
         {
             $this->configuration = $configuration;
         }
-    
+
         public function getInstanceFor($type)
         {
             switch (strtolower($type)) {
                 case 'persistence':
                     return new \ConSeats\Backends\EventStore(
                         $this->configuration->get('dataDir')
-                    );               
+                    );
+
                 case 'homeview':
                     return $this->getViewInstance($type);
+
                 default:
                     throw new FactoryException('Unknown type "' . $type . '"');
             }
         }
-        
+
         protected function getViewInstance($type)
         {
             // if (in_array($type, $supportedViews) ....

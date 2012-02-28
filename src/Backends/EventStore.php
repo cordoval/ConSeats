@@ -1,11 +1,8 @@
 <?php
 /**
- *
  * This is a very limited and partly problematic implementation.
- * It has been decided though, not to refactor this during the training.
- *
+ * It has been decided, though, not to refactor this during the training.
  */
-
 namespace ConSeats\Backends
 {
     class EventStore implements EventPersistenceInterface
@@ -33,7 +30,7 @@ namespace ConSeats\Backends
             $index = $this->loadIndex();
             $index[$object->getName()] = $id;
             $this->saveIndex($index);
-            
+
             return $id;
         }
 
@@ -42,9 +39,10 @@ namespace ConSeats\Backends
             if (!$this->exists($id)) {
                 throw new Exception('Document ID "' . $id . '" not found');
             }
+
             return unserialize(file_get_contents($this->getFilename($id)));
         }
-        
+
         public function exists($id)
         {
             return file_exists($this->getFilename($id));
@@ -53,9 +51,11 @@ namespace ConSeats\Backends
         public function retrieveByName($name)
         {
             $index = $this->loadIndex();
+
             if (!isset($index[$name])) {
-                throw new Exception('Event with name "' . $name . '" not found');                
+                throw new Exception('Event with name "' . $name . '" not found');
             }
+
             return $index[$name];
         }
 
@@ -67,17 +67,19 @@ namespace ConSeats\Backends
         protected function loadIndex()
         {
             $filename = $this->getIndexFilename();
+
             if (!file_exists($filename)) {
                 return array();
             }
+
             return unserialize(file_get_contents($filename));
         }
-        
+
         protected function saveIndex(array $index)
         {
             file_put_contents($this->getIndexFilename(), serialize($index));
         }
-        
+
         protected function getFilename($id)
         {
             return $this->dataDir . '/' . base64_encode($id);

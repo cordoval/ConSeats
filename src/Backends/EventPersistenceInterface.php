@@ -1,5 +1,4 @@
 <?php
-
 namespace ConSeats\Backends
 {
     interface EventPersistenceInterface extends PersistenceInterface

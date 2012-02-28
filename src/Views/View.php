@@ -1,5 +1,4 @@
 <?php
-
 namespace ConSeats\Views
 {
     use ConSeats\Models\PresentationModelInterface;
@@ -7,12 +6,12 @@ namespace ConSeats\Views
     class View implements ViewInterface
     {
         protected $viewScript;
-        
+
         public function __construct($viewScript)
         {
             $this->viewScript = $viewScript;
         }
-    
+
         public function render(PresentationModelInterface $presentationModel)
         {
             ob_start();
